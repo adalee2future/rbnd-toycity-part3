@@ -33,4 +33,11 @@ class Product
     end
     @@products << self
   end
+
+  def bought
+    if @stock < 1
+      raise OutOfStockError, "'#{@title}' is out of stock!"
+    end
+    @stock -= 1
+  end
 end
