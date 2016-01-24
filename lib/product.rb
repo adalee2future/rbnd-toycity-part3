@@ -1,6 +1,5 @@
 class Product
-  attr_reader :title, :price
-  attr_accessor :stock
+  attr_reader :title, :price, :stock
 
   @@products = []
 
@@ -34,10 +33,10 @@ class Product
     @@products << self
   end
 
-  def bought
-    if @stock < 1
+  def bought(count=1)
+    if @stock < count
       raise OutOfStockError, "'#{@title}' is out of stock!"
     end
-    @stock -= 1
+    @stock -= count
   end
 end
