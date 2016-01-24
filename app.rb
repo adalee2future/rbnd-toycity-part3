@@ -64,3 +64,24 @@ puts transaction2.product == nanoblock # Should return true
 
 # walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+#
+
+# Test new feature below
+puts "\n\nNew features are tested below"
+puts "-" * 40
+puts "There are #{nanoblock.stock} nano blocks."
+puts "Walter buy 4 nano blocks."
+walter.purchase(nanoblock, count: 4)
+puts "Now there are #{nanoblock.stock} nano blocks." # Should return 6
+puts
+
+ada = Customer.new(name: "Ada", age: 24, gender: "Female")
+puts "Below is Ada's infomation:"
+ada.print
+puts
+
+puts "Ada try to buy 8 nano blocks"
+Transaction.new(ada, nanoblock, count: 8)
+# Should return OutOfStockError: 'Nano Block Empire State Building' is out of stock.
+
+

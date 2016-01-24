@@ -25,8 +25,8 @@ class Customer
     @@customers << self
   end
 
-  def purchase(product)
-    Transaction.new(self, product)
+  def purchase(product, options={count: 1})
+    Transaction.new(self, product, options)
   end
 
   def print
