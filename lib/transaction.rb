@@ -4,8 +4,8 @@ class Transaction
   @@id = 1
   @@transactions = []
 
-  def initialize(customer, product, count=1)
-    product.bought(count)
+  def initialize(customer, product, options={count: 1})
+    product.bought(options[:count])
     @customer = customer
     @product = product
     @count = count
