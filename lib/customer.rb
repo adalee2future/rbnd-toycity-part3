@@ -1,10 +1,12 @@
 class Customer
-  attr_reader :name
+  attr_reader :name, :gender, :age
 
   @@customers = []
 
   def initialize(options={})
-    @name = options[:name]
+    @name = options.fetch(:name, nil)
+    @gender = options.fetch(:gender, nil)
+    @age = options.fetch(:age, nil)
     add_to_customers
   end
 
@@ -25,5 +27,9 @@ class Customer
 
   def purchase(product)
     Transaction.new(self, product)
+  end
+
+  def print
+    puts "Name: #@name, Gender: #@gender, Age: #@age"
   end
 end
