@@ -1,10 +1,12 @@
 class Product
-  attr_reader :title
+  attr_reader :title, :price, :stock
 
   @@products = []
 
   def initialize(options={})
     @title = options[:title]
+    @price = options[:price]
+    @stock = options[:stock]
     add_to_products
   end
 
@@ -12,7 +14,17 @@ class Product
     @@products
   end
 
-  private
+  def self.find_by_title(title)
+    @@products.select { |product| product.title == title }.first
+  end
+
+  def self.in_stock
+    @@products.select { |product| product.in_stock? }
+  end
+
+  def in_stock?
+    @stock > 0
+  end
 
   def add_to_products
     if @@products.map(&:title).include? @title
