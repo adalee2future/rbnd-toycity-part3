@@ -1,6 +1,6 @@
 ## How long did you spend working on this project?
 
-I spend around 4 hours to complete this project
+I spend around 3 hours to complete this project
 
 ## What was the most rewarding challenge you conquered?
 
